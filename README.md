@@ -10,6 +10,6 @@ This is a fun Python-based word puzzle game that scrambles words and challenges 
 
 ## ▶️ How to Run
 1. Clone the repo or download the files.
-2. Run `main.py` with Python.
+2. Run `word_puzzle.py` with Python.
 3. Guess the correct word from the scrambled letters!
 
