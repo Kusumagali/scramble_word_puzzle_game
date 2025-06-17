@@ -1,11 +1,7 @@
-import json
-
-words = {
-    "easy": ["loop", "code", "data", "html"],
-    "medium": ["python", "script", "window", "object"],
-    "hard": ["function", "variable", "developer", "keyboard"]
+{
+  "easy": ["loop", "code", "data", "html"],
+  "medium": ["python", "script", "window", "object"],
+  "hard": ["function", "variable", "developer", "keyboard"]
 }
 
-with open("words.json", "w") as file:
-    json.dump(words, file)
 
