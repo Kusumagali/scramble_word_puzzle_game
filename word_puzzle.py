@@ -1,54 +1,57 @@
 import tkinter as tk
-import random
 import json
+import random
 
 # Load words from JSON file
-with open('words.json') as f:
+with open("words.json", "r") as f:
     data = json.load(f)
-    words = data['words']
+    words = data["words"]
 
-# Shuffle word
-def shuffle_word(word):
-    word = list(word)
-    random.shuffle(word)
-    return ''.join(word)
+# Game variables
+score = 0
 
-# Check answer
-def check_answer():
-    user_input = entry.get()
-    if user_input.lower() == current_word.lower():
-        result_label.config(text="Correct!", fg="green")
-    else:
-        result_label.config(text="Try Again!", fg="red")
-
-# Next word
-def next_word():
-    global current_word, shuffled
-    current_word = random.choice(words)
-    shuffled = shuffle_word(current_word)
-    word_label.config(text=shuffled)
+# Functions
+def new_game():
+    global original_word, scrambled_word
+    original_word = random.choice(words)
+    scrambled_word = ''.join(random.sample(original_word, len(original_word)))
+    word_label.config(text=scrambled_word)
     entry.delete(0, tk.END)
-    result_label.config(text="")
+    result.config(text="")
 
-# GUI setup
+def check_word():
+    global score
+    user_input = entry.get()
+    if user_input.lower() == original_word:
+        score += 1
+        result.config(text="✅ Correct!", fg="green")
+        score_label.config(text=f"Score: {score}")
+        new_game()
+    else:
+        result.config(text="❌ Try Again!", fg="red")
+
+# GUI Setup
 root = tk.Tk()
 root.title("Word Puzzle Game")
+root.geometry("300x250")
+root.config(bg="#f0f8ff")
 
-word_label = tk.Label(root, font=('Arial', 24))
-word_label.pack(pady=20)
+tk.Label(root, text="Unscramble the Word", font=("Arial", 14), bg="#f0f8ff").pack(pady=5)
+word_label = tk.Label(root, text="", font=("Arial", 24, "bold"), bg="#f0f8ff")
+word_label.pack()
 
-entry = tk.Entry(root, font=('Arial', 16))
-entry.pack(pady=10)
+entry = tk.Entry(root, font=("Arial", 14))
+entry.pack(pady=5)
 
-check_btn = tk.Button(root, text="Check", command=check_answer)
-check_btn.pack(pady=5)
+tk.Button(root, text="Submit", command=check_word, bg="#4CAF50", fg="white").pack(pady=5)
+tk.Button(root, text="New Word", command=new_game, bg="#2196F3", fg="white").pack(pady=5)
 
-next_btn = tk.Button(root, text="Next Word", command=next_word)
-next_btn.pack(pady=5)
+result = tk.Label(root, text="", font=("Arial", 12), bg="#f0f8ff")
+result.pack()
 
-result_label = tk.Label(root, font=('Arial', 16))
-result_label.pack(pady=10)
+score_label = tk.Label(root, text="Score: 0", font=("Arial", 12), bg="#f0f8ff")
+score_label.pack()
 
-# Start with a word
-next_word()
+# Start game
+new_game()
 root.mainloop()
