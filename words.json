@@ -1,8 +1,11 @@
 import json
 
 words = {
-    "words": ["python", "developer", "project", "function"]
+    "easy": ["loop", "code", "data", "html"],
+    "medium": ["python", "script", "window", "object"],
+    "hard": ["function", "variable", "developer", "keyboard"]
 }
 
 with open("words.json", "w") as file:
     json.dump(words, file)
+
