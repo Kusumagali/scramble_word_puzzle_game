@@ -1,7 +1,27 @@
 {
-  "easy": ["loop", "code", "data", "html"],
-  "medium": ["python", "script", "window", "object"],
-  "hard": ["function", "variable", "developer", "keyboard"]
+  "easy": [
+    "cat", "dog", "pen", "car", "book", "sun", "bat", "top", "fan", "bus",
+    "hat", "cup", "bed", "cow", "egg", "box", "lip", "key", "map", "net"
+  ],
+  "medium": [
+    "python", "button", "window", "object", "script", "string", "number", "mobile", "google", "module",
+    "screen", "random", "circle", "square", "laptop", "camera", "switch", "folder", "cookie", "signal"
+  ],
+  "hard": [
+    "inheritance", "polymorphism", "encapsulation", "constructor", "database",
+    "compilation", "algorithm", "framework", "encryption", "integration",
+    "normalization", "authentication", "virtualization", "decomposition", "serialization",
+    "transformation", "abstraction", "initialization", "configuration", "authorization"
+  ]
 }
+!
+
+
+
+
+
+
+
+
 
 
