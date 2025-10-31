@@ -54,3 +54,13 @@ Submit before time runs out
 Score increases with correct answers
 
 Levels get harder as you progress
+
+## Future Improvements
+
+Add leaderboard or scoring history
+
+Add hint system (reveal 1 letter)
+
+Convert to Android APK using Kivy or BeeWare
+
+Add background music & animations using Pygame
